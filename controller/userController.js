@@ -1,4 +1,3 @@
-const res = require("express/lib/response");
 
 //method getUserList
 const getUserList = (req, res) => {

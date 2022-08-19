@@ -9,20 +9,12 @@ app.use(bodyParser.text());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use( express.static( "public" ) );
 
-
-//anything defined in userController file will now be available in the app.js file if we call variable userController
-let userController = require("./controller/userController")
-//this is example route (endpoint)
-app.get('/', function (req, res) {
-  res.send('Hello World')
-})
-
-
-//method is get
-//endpoint name is/user
-app.get('/user', userController.getUserList)
-app.post('/user', userController.createUser)  
+// creating a const route which has the path for index file, then put this into place by doing app.use("".abc)
+//route will pass whatever endpoint request comes through and check in routes/index file for it
+// / indicates what we are looking for
+const route = require("./routes/index");
+const { application } = require('express');
+app.use("/", route)
 
 
-//project will listen to 3000 ports (unique for the project) can run many ports on a server
 app.listen(3000)
