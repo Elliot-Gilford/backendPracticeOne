@@ -3,6 +3,7 @@ const router = express.Router();
 
 const userRoute = require("./user/index")
 const employeeRoute = require("../routes/employee/index")
+const studentRoute = require("../routes/student/index")
 // const emplyeeRoute = require()
 
 
@@ -13,6 +14,7 @@ const employeeRoute = require("../routes/employee/index")
 
 router.use("/user", userRoute)
 router.use("/employee", employeeRoute)
+router.use("/student", studentRoute)
 
 // router.use("/employee", userRoute)
 

@@ -15,7 +15,7 @@ const res = require("express/lib/response");
 //     } 
 
 const getEmployee = (req,res) => {
-    let emplyeeList = [{id: "1", employeeCode: "employee1"}, {id: "2", employeeCode: "employee2"}]
+    let employeeList = [{id: "1", employeeCode: "employee1"}, {id: "2", employeeCode: "employee2"}]
 
     res.send({
         status: true,
