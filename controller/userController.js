@@ -1,22 +1,13 @@
 const con = require("../config")
 
-
-
-
 //method getUserList
-
 //arrow method created constant as variable and then create funciton. Always then needs arrow method
 const getUserList = async (req, res) => {
 
-
     let { userId, email } = req.query
-
     let response = []
-
     //empty array = let name = []
     //empty object = let name = {}
-
-
     con.query("select * from User", function (err, result, fields) {
         console.log("see query result", result)
         Object.keys(result).forEach(function (key) {
@@ -30,11 +21,9 @@ const getUserList = async (req, res) => {
             message: "userList Shared Successfully2"
         })
     })
-
-
-
 }
 
+//create a new user
 const createUser = (req, res) => {
     console.log("logging user post req body", req.body)
     //userList is array with 2 objects
@@ -43,10 +32,10 @@ const createUser = (req, res) => {
     } = req.body
 
     //access variable inside string with backtick do ${}
-    let sqlQuery = 
-    // `INSERT INTO User(Id, firstName, lastName, email) VALUES (null, "Priyank", "Priyank", "ppanchal912@gmail.com")`
-    `INSERT INTO User(Id, firstName, lastName, email) VALUES (null, "${firstName}", "${lastName}", "${email}")`
-    // `INSERT INTO User(Id, firstName, lastName, email) VALUES (0, ${firstName}, ${lastName}, ${email})`
+    let sqlQuery =
+        // `INSERT INTO User(Id, firstName, lastName, email) VALUES (null, "Priyank", "Priyank", "ppanchal912@gmail.com")`
+        `INSERT INTO User(Id, firstName, lastName, email) VALUES (null, "${firstName}", "${lastName}", "${email}")`
+        // `INSERT INTO User(Id, firstName, lastName, email) VALUES (0, ${firstName}, ${lastName}, ${email})`
 
     con.query(sqlQuery, function (error, result) {
         console.log("error seen is:", error)
@@ -58,7 +47,6 @@ const createUser = (req, res) => {
             message: "create User Successfully"
         })
     })
-
 }
 
 
